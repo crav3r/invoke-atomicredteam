@@ -99,7 +99,7 @@ function Install-AtomicRedTeam {
                 Invoke-Expression (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/$RepoOwner/invoke-atomicredteam/round5test/install-atomicsfolder.ps1"); Install-AtomicsFolder -InstallPath $InstallPath -DownloadPath $DownloadPath -Force:$Force -RepoOwner $RepoOwner
             }
 
-            if ($getRound5TestStep) {
+            if ($getRound5TestStep) { #test
                 Write-Verbose "Downloading Round5TestStep Powershell Script Files"
                 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/Round5TestAuto.ps1" -OutFile "$DownloadPath\install-atomicredteam.ps1"
                 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/Round5TestAuto_privilege.ps1" -OutFile "$DownloadPath\Round5TestAuto_privilege.ps1"
