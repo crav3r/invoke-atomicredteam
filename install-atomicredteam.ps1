@@ -102,19 +102,18 @@ function Install-AtomicRedTeam {
             if ($getRound5TestStep) { 
                 Write-Verbose "Downloading Round5TestStep Powershell Script Files"
                 Write-Verbose "Downloading Round5TestStep Powershell Script Files"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestAuto.ps1" -OutFile "$DownloadPath\1st\Round5TestAuto.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestAuto_privilege.ps1" -OutFile "$DownloadPath\1st\Round5TestAuto_privilege.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep(AD)_1.ps1" -OutFile "$DownloadPath\1st\Round5TestStep(AD)_1.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep_1.ps1" -OutFile "$DownloadPath\1st\Round5TestStep_1.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep_1_pause.ps1" -OutFile "$DownloadPath\1st\Round5TestStep_1_pause.ps1" 
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep_privilege_1.ps1" -OutFile "$DownloadPath\1st\Round5TestStep_privilege_1.ps1" 
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep_privilege_1_pause.ps1" -OutFile "$DownloadPath\1st\Round5TestStep_privilege_1_pause.ps1" 
-
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/crav3r/atomic-red-team/round5test/round5test/2nd/Round5TestStep(AD)_2.ps1" -OutFile "$DownloadPath\2nd\Round5TestStep(AD)_2.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/crav3r/atomic-red-team/round5test/round5test/2nd/Round5TestStep(linux)_2.ps1" -OutFile "$DownloadPath\2nd\Round5TestStep(linux)_2.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/crav3r/atomic-red-team/round5test/round5test/2nd/Round5TestStep(manual)_2.txt" -OutFile "$DownloadPath\2nd\Round5TestStep(manual)_2.txt"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/crav3r/atomic-red-team/round5test/round5test/2nd/Round5TestStep_2.ps1" -OutFile "$DownloadPath\2nd\Round5TestStep_2.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/crav3r/atomic-red-team/round5test/round5test/2nd/Round5TestStep_privilege_2.ps1" -OutFile "$DownloadPath\2nd\Round5TestStep_privilege_2.ps1" 
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestAuto.ps1" -OutFile "$DownloadPath\Round5TestAuto.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestAuto_privilege.ps1" -OutFile "$DownloadPath\Round5TestAuto_privilege.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep(AD)_1.ps1" -OutFile "$DownloadPath\Round5TestStep(AD)_1.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep_1.ps1" -OutFile "$DownloadPath\Round5TestStep_1.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep_1_pause.ps1" -OutFile "$DownloadPath\Round5TestStep_1_pause.ps1" 
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep_privilege_1.ps1" -OutFile "$DownloadPath\Round5TestStep_privilege_1.ps1" 
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep_privilege_1_pause.ps1" -OutFile "$DownloadPath\Round5TestStep_privilege_1_pause.ps1" 
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/crav3r/atomic-red-team/round5test/round5test/2nd/Round5TestStep(AD)_2.ps1" -OutFile "$DownloadPath\Round5TestStep(AD)_2.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/crav3r/atomic-red-team/round5test/round5test/2nd/Round5TestStep(linux)_2.ps1" -OutFile "$DownloadPath\Round5TestStep(linux)_2.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/crav3r/atomic-red-team/round5test/round5test/2nd/Round5TestStep(manual)_2.txt" -OutFile "$DownloadPath\Round5TestStep(manual)_2.txt"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/crav3r/atomic-red-team/round5test/round5test/2nd/Round5TestStep_2.ps1" -OutFile "$DownloadPath\Round5TestStep_2.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/crav3r/atomic-red-team/round5test/round5test/2nd/Round5TestStep_privilege_2.ps1" -OutFile "$DownloadPath\Round5TestStep_privilege_2.ps1" 
             }
 
             Write-Host "Installation of Invoke-AtomicRedTeam is complete. You can now use the Invoke-AtomicTest function" -Fore Yellow
