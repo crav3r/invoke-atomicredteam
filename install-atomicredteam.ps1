@@ -101,6 +101,8 @@ function Install-AtomicRedTeam {
 
             if ($getRound5TestStep) { 
                 Write-Verbose "Downloading Round5TestStep Powershell Script Files"
+                New-Item -Path "$DownloadPath\" -Name "1st" -ItemType "directory"
+                New-Item -Path "$DownloadPath\" -Name "2nd" -ItemType "directory"
                 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestAuto.ps1" -OutFile "$DownloadPath\Round5TestAuto.ps1"
                 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestAuto_privilege.ps1" -OutFile "$DownloadPath\Round5TestAuto_privilege.ps1"
                 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep(AD)_1.ps1" -OutFile "$DownloadPath\Round5TestStep(AD)_1.ps1"
