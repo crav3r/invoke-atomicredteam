@@ -36,7 +36,7 @@ function Install-AtomicRedTeam {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory = $False, Position = 0)]
-        [string]$InstallPath = $( if ($IsLinux -or $IsMacOS) { $Env:HOME + "/AtomicRedTeam" } else { "c:\round5test" }),
+        [string]$InstallPath = $( if ($IsLinux -or $IsMacOS) { $Env:HOME + "/AtomicRedTeam" } else { "c:\kmit" }),
 
         [Parameter(Mandatory = $False, Position = 1)]
         [string]$DownloadPath = $InstallPath,
@@ -45,13 +45,13 @@ function Install-AtomicRedTeam {
         [string]$RepoOwner = "crav3r",
 
         [Parameter(Mandatory = $False, Position = 3)]
-        [string]$Branch = "round5test",
+        [string]$Branch = "kmit",
 
         [Parameter(Mandatory = $False, Position = 4)]
         [switch]$getAtomics = $False,
 
         [Parameter(Mandatory = $False, Position = 5)]
-        [switch]$getRound5TestStep = $False,
+        [switch]$getKMITTestStep = $False,
 
         [Parameter(Mandatory = $False)]
         [switch]$Force = $False # delete the existing install directory and reinstall
@@ -96,25 +96,25 @@ function Install-AtomicRedTeam {
 
             if ($getAtomics) {
                 Write-Verbose "Installing Atomics Folder"
-                Invoke-Expression (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/$RepoOwner/invoke-atomicredteam/round5test/install-atomicsfolder.ps1"); Install-AtomicsFolder -InstallPath $InstallPath -DownloadPath $DownloadPath -Force:$Force -RepoOwner $RepoOwner
+                Invoke-Expression (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/$RepoOwner/invoke-atomicredteam/kmit/install-atomicsfolder.ps1"); Install-AtomicsFolder -InstallPath $InstallPath -DownloadPath $DownloadPath -Force:$Force -RepoOwner $RepoOwner
             }
 
-            if ($getRound5TestStep) { 
-                Write-Verbose "Downloading Round5TestStep Powershell Script Files"
+            if ($getKMITTestStep) { 
+                Write-Verbose "Downloading KMITTestStep Powershell Script Files"
                 New-Item -Path "$DownloadPath\" -Name "1st" -ItemType "directory"
                 New-Item -Path "$DownloadPath\" -Name "2nd" -ItemType "directory"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestAuto.ps1" -OutFile "$DownloadPath\1st\Round5TestAuto.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestAuto_privilege.ps1" -OutFile "$DownloadPath\1st\Round5TestAuto_privilege.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep(AD)_1.ps1" -OutFile "$DownloadPath\1st\Round5TestStep(AD)_1.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep_1.ps1" -OutFile "$DownloadPath\1st\Round5TestStep_1.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep_1_pause.ps1" -OutFile "$DownloadPath\1st\Round5TestStep_1_pause.ps1" 
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep_privilege_1.ps1" -OutFile "$DownloadPath\1st\Round5TestStep_privilege_1.ps1" 
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/1st/Round5TestStep_privilege_1_pause.ps1" -OutFile "$DownloadPath\1st\Round5TestStep_privilege_1_pause.ps1" 
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/2nd/Round5TestStep(AD)_2.ps1" -OutFile "$DownloadPath\2nd\Round5TestStep(AD)_2.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/2nd/Round5TestStep(linux)_2.ps1" -OutFile "$DownloadPath\2nd\Round5TestStep(linux)_2.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/2nd/Round5TestStep(manual)_2.txt" -OutFile "$DownloadPath\2nd\Round5TestStep(manual)_2.txt"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/2nd/Round5TestStep_2.ps1" -OutFile "$DownloadPath\2nd\Round5TestStep_2.ps1"
-                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/round5test/round5test/2nd/Round5TestStep_privilege_2.ps1" -OutFile "$DownloadPath\2nd\Round5TestStep_privilege_2.ps1" 
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/kmit/kmit/1st/KMIT_TestAuto.ps1" -OutFile "$DownloadPath\1st\KMIT_TestAuto.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/kmit/kmit/1st/KMIT_TestAuto_privilege.ps1" -OutFile "$DownloadPath\1st\KMIT_TestAuto_privilege.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/kmit/kmit/1st/KMIT_TestStep(AD)_1.ps1" -OutFile "$DownloadPath\1st\KMIT_TestStep(AD)_1.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/kmit/kmit/1st/KMIT_TestStep_1.ps1" -OutFile "$DownloadPath\1st\KMIT_TestStep_1.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/kmit/kmit/1st/KMIT_TestStep_1_pause.ps1" -OutFile "$DownloadPath\1st\KMIT_TestStep_1_pause.ps1" 
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/kmit/kmit/1st/KMIT_TestStep_privilege_1.ps1" -OutFile "$DownloadPath\1st\KMIT_TestStep_privilege_1.ps1" 
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/kmit/kmit/1st/KMIT_TestStep_privilege_1_pause.ps1" -OutFile "$DownloadPath\1st\KMIT_TestStep_privilege_1_pause.ps1" 
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/kmit/kmit/2nd/KMIT_TestStep(AD)_2.ps1" -OutFile "$DownloadPath\2nd\KMIT_TestStep(AD)_2.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/kmit/kmit/2nd/KMIT_TestStep(linux)_2.ps1" -OutFile "$DownloadPath\2nd\KMIT_TestStep(linux)_2.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/kmit/kmit/2nd/KMIT_TestStep(manual)_2.txt" -OutFile "$DownloadPath\2nd\KMIT_TestStep(manual)_2.txt"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/kmit/kmit/2nd/KMIT_TestStep_2.ps1" -OutFile "$DownloadPath\2nd\KMIT_TestStep_2.ps1"
+                Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$RepoOwner/atomic-red-team/kmit/kmit/2nd/KMIT_TestStep_privilege_2.ps1" -OutFile "$DownloadPath\2nd\KMIT_TestStep_privilege_2.ps1" 
             }
 
             Write-Host "Installation of Invoke-AtomicRedTeam is complete. You can now use the Invoke-AtomicTest function" -Fore Yellow
